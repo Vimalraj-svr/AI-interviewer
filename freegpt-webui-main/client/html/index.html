@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>iamneo - AI Interviewer</title>
+    <link rel="stylesheet" href="{{ url_for('bp.static', filename='css/styles.css') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('bp.static', filename='img/favicon.png') }}">
+    <style>
+        #role::placeholder,
+        #techStack::placeholder {
+            color: black;
+        }
+    </style>
+</head>
+<body data-urlprefix="{{ url_prefix }}">
+    <img src="{{ url_for('bp.static', filename='img/logo.webp') }}" alt="AI Interviewer" class="logo">
+    <div class="main-container">
+        <div class="box conversation">
+            <div class="ai-interviewer">Your AI Interviewer</div>
+            <div class="anim-head hide">
+                <h3>We're getting your questions ready :)</h3>
+            </div>            
+            <div class="loading-animation hide"></div>
+            <div class="user-input">
+                <div class="box input-box">
+                    <div class="input-row">
+                        <label for="numQuestions">Number of Questions:</label>
+                        <select class="custom-dropdown" id="numQuestions">
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                        </select>
+                    </div>
+                    <div class="input-row">
+                        <label for="role">Role:</label>
+                        <input class="custom-text-area" type="text" id="role" placeholder=" Enter the role">
+                    </div>
+                    <div class="input-row">
+                        <label for="experience">Years of Experience:</label>
+                        <select class="custom-dropdown" id="experience">
+                            <option value="" disabled selected>Select Experience</option>
+                            <option value="0">Fresher</option>
+                            <option value="1">1 year</option>
+                            <option value="2">2 years</option>
+                            <option value="3">3 years</option>
+                            <option value="1">4 years</option>
+                            <option value="2">5 years</option>
+                            <option value="3">6 years</option>
+                            <option value="1">7 years</option>
+                            <option value="2">8 years</option>
+                            <option value="3">9 years</option>
+                            <option value="30">10 years</option>
+                            <option value="greater than 10">>10 years</option>
+                        </select>
+                    </div>
+                    <div class="input-row">
+                        <label for="techStack">Skills:</label>
+                        <input class="custom-text-area" type="text" id="techStack" placeholder=" Relevant Skills">
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="box" id="question-cards"></div>
+			<div id="buttons" class="buttons">
+                <div id="send-button">
+                    <button>See Questions</button>
+                </div>
+                <div id="exit-button" class="exit-button hide">
+                    <button>Exit Interviewer</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+        window.conversation_id = "{{ chat_id }}";
+    </script>
+    <script src="{{ url_for('bp.static', filename='js/chat.js') }}" defer></script>
+</body>
+</html>
